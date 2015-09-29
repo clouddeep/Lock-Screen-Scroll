@@ -8,7 +8,7 @@
 
 #import "SCTScrollingCell.h"
 
-#define PULL_THRESHOLD 60
+#define PULL_THRESHOLD 120
 
 @interface SCTScrollingCell () <UIScrollViewDelegate> {
     UIScrollView * _scrollView;
@@ -34,9 +34,16 @@
     }
     
     if (_pulling) {
-        CGFloat pullOffset = MAX(0, offset - PULL_THRESHOLD);
+        CGFloat pullOffset;
+        
+        if (_deceleratingBackToZero) {
+            pullOffset = offset * _decelerationDistanceRatio;
+        }else {
+            pullOffset = MAX(0, offset - PULL_THRESHOLD);
+        }
         
         [_delegate scrollingCell:self didChangePullOffset:pullOffset];
+        _scrollView.transform = CGAffineTransformMakeTranslation(pullOffset, 0);
     }
 }
 
@@ -44,6 +51,10 @@
 {
     [_delegate scrollingCellDidEndPulling:self];
     _pulling = NO;
+    _deceleratingBackToZero = NO;
+    
+    _scrollView.contentOffset = CGPointZero;
+    _scrollView.transform = CGAffineTransformIdentity;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -56,6 +67,20 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self scrollingEnded];
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    CGFloat offset = _scrollView.contentOffset.x;
+    
+    if ((*targetContentOffset).x == 0 && offset > 0) {
+        _deceleratingBackToZero = YES;
+        
+        CGFloat pullOffset = MAX(0, offset - PULL_THRESHOLD);
+        _decelerationDistanceRatio = pullOffset / offset;
+    }
 }
 
 
@@ -90,7 +115,7 @@
     UIView *contentView = self.contentView;
     CGRect bounds = contentView.bounds;
     
-    CGFloat pageWidth = bounds.size.width;
+    CGFloat pageWidth = bounds.size.width + PULL_THRESHOLD;
     _scrollView.frame = CGRectMake(0, 0, pageWidth, bounds.size.height);
     _scrollView.contentSize = CGSizeMake(pageWidth * 2, bounds.size.height);
     

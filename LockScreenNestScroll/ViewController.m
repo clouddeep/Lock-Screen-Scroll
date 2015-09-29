@@ -50,6 +50,7 @@ CGFloat _random() { return (float)rand() / (float)RAND_MAX;}
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(screenSize.width, ROW_HEIGHT);
+    flowLayout.minimumLineSpacing = 3;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height) collectionViewLayout:flowLayout];
     collectionView.delegate = self;
@@ -72,9 +73,7 @@ CGFloat _random() { return (float)rand() / (float)RAND_MAX;}
 {
     [super viewDidLoad];
     
-    self.scrollView.backgroundColor = [UIColor redColor];
-    self.rightSlideView.backgroundColor = [UIColor yellowColor];
-    self.collectionView.backgroundColor = [UIColor greenColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     [self.collectionView registerClass:[SCTScrollingCell class] forCellWithReuseIdentifier:cellIdentifier];
 }
