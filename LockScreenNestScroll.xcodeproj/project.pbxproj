@@ -15,6 +15,7 @@
 		63E5DA001BBA2C6B00E3CDC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E5D9FE1BBA2C6B00E3CDC4 /* LaunchScreen.xib */; };
 		63E5DA0C1BBA2C6B00E3CDC4 /* LockScreenNestScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E5DA0B1BBA2C6B00E3CDC4 /* LockScreenNestScrollTests.m */; };
 		63E5DA171BBA336E00E3CDC4 /* SCTScrollingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E5DA161BBA336E00E3CDC4 /* SCTScrollingCell.m */; };
+		63E5DA1A1BBAE13F00E3CDC4 /* SpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E5DA191BBAE13F00E3CDC4 /* SpringyFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		63E5DA0B1BBA2C6B00E3CDC4 /* LockScreenNestScrollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockScreenNestScrollTests.m; sourceTree = "<group>"; };
 		63E5DA151BBA336E00E3CDC4 /* SCTScrollingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTScrollingCell.h; sourceTree = "<group>"; };
 		63E5DA161BBA336E00E3CDC4 /* SCTScrollingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTScrollingCell.m; sourceTree = "<group>"; };
+		63E5DA181BBAE13F00E3CDC4 /* SpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringyFlowLayout.h; sourceTree = "<group>"; };
+		63E5DA191BBAE13F00E3CDC4 /* SpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringyFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				63E5D9F71BBA2C6B00E3CDC4 /* ViewController.m */,
 				63E5DA151BBA336E00E3CDC4 /* SCTScrollingCell.h */,
 				63E5DA161BBA336E00E3CDC4 /* SCTScrollingCell.m */,
+				63E5DA181BBAE13F00E3CDC4 /* SpringyFlowLayout.h */,
+				63E5DA191BBAE13F00E3CDC4 /* SpringyFlowLayout.m */,
 				63E5D9EF1BBA2C6B00E3CDC4 /* Supporting Files */,
 			);
 			path = LockScreenNestScroll;
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E5DA171BBA336E00E3CDC4 /* SCTScrollingCell.m in Sources */,
+				63E5DA1A1BBAE13F00E3CDC4 /* SpringyFlowLayout.m in Sources */,
 				63E5D9F81BBA2C6B00E3CDC4 /* ViewController.m in Sources */,
 				63E5D9F51BBA2C6B00E3CDC4 /* AppDelegate.m in Sources */,
 				63E5D9F21BBA2C6B00E3CDC4 /* main.m in Sources */,
@@ -422,6 +428,7 @@
 				63E5DA111BBA2C6B00E3CDC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63E5DA121BBA2C6B00E3CDC4 /* Build configuration list for PBXNativeTarget "LockScreenNestScrollTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				63E5DA141BBA2C6B00E3CDC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

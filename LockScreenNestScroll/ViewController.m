@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SCTScrollingCell.h"
+#import "SpringyFlowLayout.h"
 
 #define ROW_HEIGHT 50
 
@@ -16,7 +17,8 @@ static NSString * cellIdentifier = @"CellIdentifier";
 @interface ViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SCTScrollingCellDelegate>
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UICollectionView *collectionView;
-@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+//@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) SpringyFlowLayout *flowLayout;
 @property (strong, nonatomic) UIView *rightSlideView;
 @end
 
@@ -48,7 +50,8 @@ CGFloat _random() { return (float)rand() / (float)RAND_MAX;}
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     scrollView.delegate = self;
     
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    SpringyFlowLayout *flowLayout = [[SpringyFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(screenSize.width, ROW_HEIGHT);
     flowLayout.minimumLineSpacing = 3;
     
